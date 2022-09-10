@@ -63,7 +63,7 @@ document.querySelector(".btn_start").addEventListener("click", function () {
 
 
 function soruGoster(soru) {
-
+    
     let question = ` <span> ${soru.soruMetni }</span>`;
     let options = '';
 
@@ -73,7 +73,6 @@ function soruGoster(soru) {
           <span> <b>${cevap} </b>: ${soru.cevapSecenekleri[cevap]}  </span>   
           </div>`;
     }
-
     document.querySelector(".question_text").innerHTML = question;
     document.querySelector(".option_list").innerHTML = options;
 
