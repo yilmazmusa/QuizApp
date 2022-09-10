@@ -67,6 +67,7 @@ function soruGoster(soru) {
     let question = ` <span> ${soru.soruMetni }</span>`;
     let options = '';
 
+    
     for( let cevap in soru.cevapSecenekleri) {
 
         options += ` <div  class="option">
