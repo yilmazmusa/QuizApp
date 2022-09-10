@@ -78,7 +78,6 @@ function soruGoster(soru) {
 
 }
 
-
 document.querySelector(".next-btn").addEventListener("click",function(){
     
     if (quiz.sorular != quiz.soruIndex + 1) {
