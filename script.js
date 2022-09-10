@@ -69,6 +69,7 @@ function soruGoster(soru) {
 
 
     
+
     for( let cevap in soru.cevapSecenekleri) {
 
         options += ` <div  class="option">
