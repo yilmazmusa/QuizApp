@@ -78,6 +78,7 @@ function soruGoster(soru) {
 
 }
 
+
 document.querySelector(".next-btn").addEventListener("click",function(){
     
     if (quiz.sorular != quiz.soruIndex + 1) {
@@ -87,6 +88,5 @@ document.querySelector(".next-btn").addEventListener("click",function(){
     } else { 
         console.log("Quiz bitti.")
     }
-
 })
 
