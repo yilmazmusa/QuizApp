@@ -88,6 +88,5 @@ document.querySelector(".next-btn").addEventListener("click",function(){
         console.log("Quiz bitti.")
     }
 
-
 })
 
