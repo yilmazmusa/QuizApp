@@ -1,94 +1,76 @@
-function Soru(soruMetni, cevapSecenekleri, dogruCevap) {
-
-    this.soruMetni = soruMetni;
-    this.cevapSecenekleri = cevapSecenekleri;
-    this.dogruCevap = dogruCevap;
-}
-
-Soru.prototype.cevabiKontrolEt = function (cevap) {
-
-    return cevap === this.dogruCevap;
-}
-
-let sorular = [
-
-    new Soru("1-Hangisi Javascript paket yonetim uygulamasidir ?", {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "Npm",
-        d: "Nuget"
-    }, "c"),
-    new Soru("2-Hangisi Javascript paket yonetim uygulamasidir ?", {
-        a: "Node.js",
-        b: "Nuget",
-        c: "Spring"
-    }, "c"),
-    new Soru("3-Hangisi Javascript paket yonetim uygulamasidir ?", {
-        a: "Node.js",
-        b: "Nuget",
-        c: "Spring"
-    }, "c"),
-    new Soru("4-Hangisi C# paket yonetim uygulamasidir ?", {
-        a: "Node.js",
-        b: "Nuget",
-        c: "Spring",
-        d: "TypeScript"
-    }, "c")
-
-];
-
-function Quiz(sorular) {
-
-    this.sorular = sorular;
-    this.soruIndex = 0;
-}
-
-Quiz.prototype.soruGetir = function () {
-
-    return this.sorular[this.soruIndex]
-
-}
-
 let quiz = new Quiz(sorular);
+const ui = new UI();
 
 
 //let sorular = document.getElementsByClassName(".btn-soruGetir");  // aşağıdaki  tanımlamanın bir değişiği ikiside aynı aslında
-document.querySelector(".btn_start").addEventListener("click", function () {
-
-    document.querySelector(".quiz_box").classList.add("active");
-    soruGoster(quiz.soruGetir());
+ui.btn_start.addEventListener("click", function () {
+    ui.soruGoster(quiz.soruGetir());
+    ui.quiz_box.classList.add("active");
+    ui.soruSayisiniGoster(quiz.soruIndex+1,quiz.sorular.length);
+    ui.btn_next.classList.remove("show");
 
 
 })
 
 
-function soruGoster(soru) {
+ui.btn_next.addEventListener("click",function(){
     
-    let question = ` <span> ${soru.soruMetni }</span>`;
-    let options = '';
-
-
-    
-
-    for( let cevap in soru.cevapSecenekleri) {
-
-        options += ` <div  class="option">
-          <span> <b>${cevap} </b>: ${soru.cevapSecenekleri[cevap]}  </span>   
-          </div>`;
-    }
-    document.querySelector(".question_text").innerHTML = question;
-    document.querySelector(".option_list").innerHTML = options;
-
-}
-
-document.querySelector(".next-btn").addEventListener("click",function(){
-    
-    if (quiz.sorular != quiz.soruIndex + 1) {
+    if (quiz.sorular.length != quiz.soruIndex + 1 ) {
         
         quiz.soruIndex += 1;    
-        soruGoster(quiz.soruGetir());
+        ui.soruGoster(quiz.soruGetir());
+        ui.soruSayisiniGoster(quiz.soruIndex+1,quiz.sorular.length);
+        ui.btn_next.classList.remove("show");
+
     } else { 
         console.log("Quiz bitti.")
+        ui.score_box.classList.add("active");
+        ui.quiz_box.classList.remove("active");
+        ui.skoruGoster(quiz.sorular.length, quiz.dogruCevapSayisi);
     }
 })
+
+
+ui.btn_quit.addEventListener("click", function () {
+    window.location.reload(); //Safyanı F5 yapmış g,b, yeniler.
+
+})
+
+ui.btn_replay.addEventListener("click", function () {
+    quiz.soruIndex = 0;
+    quiz.dogruCevapSayisi = 0;
+    ui.btn_start.click(); // Bir butona bastığında başka bir butonu bu şekilde tetikleriz.Burada btn_start yerine quiz_box ta yazabilirdik.
+    ui.score_box.classList.remove("active");
+})
+
+
+
+function optionSelected(option) {
+
+    let cevap = option.querySelector("span b").textContent;
+    let soru =quiz.soruGetir();
+    
+   if(soru.cevabiKontrolEt(cevap.trim())) {
+     quiz.dogruCevapSayisi +=1;
+     option.classList.add("correct");
+     option.insertAdjacentHTML("beforeend",ui.correctIcon);
+     
+   }
+
+   else 
+   {
+    
+    option.classList.add("incorrect");
+    option.insertAdjacentHTML("beforeend",ui.incorrectIcon);
+   }
+
+   for (let i = 0; i < ui.option_list.children.length; i++) {
+        ui.option_list.children[i].classList.add("disabled");
+    
+   }
+    ui.btn_next.classList.add("show");
+    
+}
+
+
 

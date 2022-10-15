@@ -17,9 +17,6 @@
         <button class="btn-sorugetir btn btn-warning btn-lg">Start Quiz</button>
     </div>
 
-
-
-
     <div class="card quiz_box">
         <header class="card-header">
             <div class="title">Quiz App</div>
@@ -54,9 +51,30 @@
         </section>
 
         <footer class="card-footer">
-            <button class=" next-btn btn btn-primary btn-sm">Sonraki Soru</button>
-        </footer>
 
+            <div class="question_index">
+                <!-- <span class="badge bg-warning">1 / 4</span>  DİNAMİK HALE GETİRDİK script.js kısmında--> 
+            </div>
+            <button class="btn_next btn btn-primary btn-sm ">Sonraki Soru</button>
+        </footer>
+    </div>
+
+    <div class="card score_box">
+        <div class="icon" ><i class="fas fa-crown"></i></div>
+        <div class="score_text"></div>
+        <div class="buttons">
+            <button class="btn btn-primary btn_replay">Tekrar Başlat.</button>
+            <button class="btn btn-primary btn_quit">Testi Bitir.</button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="soru.js"></script>
+    <script src="ui.js"></script>
+    <script src="quiz.js"></script>
     <script src="script.js"></script>
 </body>
 
