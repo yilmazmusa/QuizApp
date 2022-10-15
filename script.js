@@ -13,6 +13,8 @@ ui.btn_start.addEventListener("click", function () {
 })
 
 
+
+
 ui.btn_next.addEventListener("click",function(){
     
     if (quiz.sorular.length != quiz.soruIndex + 1 ) {
