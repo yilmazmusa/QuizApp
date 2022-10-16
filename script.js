@@ -57,6 +57,7 @@ ui.btn_replay.addEventListener("click", function () {
 
 
 function optionSelected(option) {
+    
     clearInterval(counter); /* BİR SEÇENEK SÜRE BİTMEDEN SEÇİLDİĞİNDE ONA GÖRE İŞLEM YAPILACAK */
     clearInterval(counterLine); /* BİR SEÇENEK SEÇİLDİĞİNDE YATAY AKAN TİME_LİNE DURMASI İÇİN */
     let cevap = option.querySelector("span b").textContent;
@@ -94,6 +95,7 @@ function startTimer(time) {
         time--; /* sürekli bir bir azalacak.*/
 
         if (time < 0){
+            
             clearInterval(counter); /* Temizlenece olan Interval'in referansını verdik.*/
             ui.time_text.textContent ="Süre Bitti.";
 
@@ -114,6 +116,7 @@ function startTimer(time) {
     }
 
 }
+
 
 let counterLine;
 function startTimerLine() {
