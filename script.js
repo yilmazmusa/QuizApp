@@ -81,6 +81,7 @@ function optionSelected(option) {
 
     }
     ui.btn_next.classList.add("show");
+    
 
 }
 
