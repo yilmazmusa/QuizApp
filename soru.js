@@ -11,6 +11,7 @@ Soru.prototype.cevabiKontrolEt = function (cevap) {
 }
 
 
+
 let sorular = [
 
     new Soru("1-Hangisi Javascript paket yonetim uygulamasidir ?", {
