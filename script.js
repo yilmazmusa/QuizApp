@@ -88,6 +88,7 @@ function optionSelected(option) {
 
 
 
+
 let counter; /* SetInterval'in referansını buna vericez aşağıda. */
 function startTimer(time) {
     counter = setInterval(timer, 1000); /*setInterval metodu timer metodunu 1 saniyede bir çağıracak */
