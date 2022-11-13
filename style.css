@@ -7,8 +7,6 @@
   transform: translate(-50%, -50%);
 }
 
-
-
 .quiz_box {
   width: 550px;
   opacity: 0;
@@ -18,11 +16,9 @@
 }
 
 .quiz_box.active {
-    
   opacity: 1;
   pointer-events: auto;
   transform: translate(-150% -50%) scale(1);
-
 }
 
 .quiz_box header .title {
@@ -58,43 +54,34 @@
 }
 
 .quiz_box .option_list .option.correct {
-
-    color: #155724;
-    background: #d4edda;
+  color: #155724;
+  background: #d4edda;
 }
 
 .quiz_box .option_list .option.incorrect {
-    
-    color: #721c24;
-    background: #f8d7da;
+  color: #721c24;
+  background: #f8d7da;
 }
 
 .quiz_box .option_list .option.disabled {
-
   pointer-events: none;
-
 }
 
-
 .quiz_box .btn_next {
-
   opacity: 0;
   pointer-events: none;
 
   transform: scale(0.9);
-  transition: all 0.3s  ease;
+  transition: all 0.3s ease;
 }
 
 .quiz_box .btn_next.show {
-
   opacity: 1;
   pointer-events: auto;
   transform: scale(1);
-
 }
 
 .quiz_box footer {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,39 +129,33 @@
 
 /* score box */
 
-
 .score_box.active {
-    
   opacity: 1;
   pointer-events: auto;
   transform: translate(-150% -50%) scale(1);
-
 }
 
 .score_box {
-width: 550px;
-align-items: center;
-justify-content: center;
-padding: 30px;
+  width: 550px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
 
-opacity: 0;
-pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 
-transition: all 0.3s ease;
-transform: translate(-50% -50%) scale(0.2);
+  transition: all 0.3s ease;
+  transform: translate(-50% -50%) scale(0.2);
 }
 
 .score_box .icon {
-
   font-size: 90px;
   color: #007bff;
   margin-bottom: 10px;
 }
 
 .score_box .score_text {
-
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 10px;
 }
-

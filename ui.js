@@ -13,6 +13,7 @@ function UI() {
     this.time_second = document.querySelector(".time_second"),
     this.time_line = document.querySelector(".time_line")
 
+    
 }
 
 
